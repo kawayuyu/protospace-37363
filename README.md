@@ -11,11 +11,10 @@
 | occupation         | text   | null: false   |
 | position           | text   | null: false   |
 
-### Association #後で確認
+### Association
 
-- has_many :room_users
-- has_many :rooms, through: :room_users
-- has_many :messages
+- has_many :prototypes
+- has_many :comments
 
 ## prototypes テーブル
 
@@ -26,9 +25,9 @@
 | concept    | text       | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
-### Association #後で確認
+### Association
 
-- belongs_to :room
+- has_many :comments
 - belongs_to :user
 
 ## comments テーブル
@@ -39,7 +38,7 @@
 | prototype | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
-### Association #後で確認
+### Association
 
-- belongs_to :room
+- belongs_to :prototype
 - belongs_to :user
